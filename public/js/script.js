@@ -7,7 +7,7 @@ $(document).ready(function(){
     })
     toggleNav()
   })
-
+  $("#content").scroll(reveal)
   var scrollVal = 0
   $("#content").scroll(function(){
     var currentScroll = $("#content").scrollTop()
@@ -32,6 +32,21 @@ $(document).ready(function(){
       $($("#aboutContainer").children()[index]).css({"display": "block"})
     }
   })
+  $.ajax({
+    url: "/pics",
+    dataType: "json",
+    success: function(data){
+      data.files.forEach(function(photo){
+        $("#pics").append("<li><img class='thumbpic' src='imgs/slideshow/" + photo + "'></li>")
+      })
+      $("#showpic").append("<img src='imgs/slideshow/" + data.files[0] + "'/>")
+      $(".thumbpic").on("click", function(e){
+
+        $("#showpic").empty().append("<img src='" + e.target.currentSrc + "' />")
+      })
+    }
+  })
+
 })
 var map;
 var mapOptions = {
@@ -49,5 +64,23 @@ function toggleNav(){
     $("#content").off("click")
   } else {
     $("#main").addClass("display-nav")
+  }
+}
+function reveal(){
+  console.log($("#sec5").offset().top)
+  console.log("position: " + $("#sec5").position().top)
+  console.log("div size: " + $("#sec5").height())
+  console.log("diff: " + ($("#sec5").position().top - $("#sec5").offset().top))
+  var divEntrance = $("#sec5").offset().top - $("#sec5").height()
+  // var divExit = $("#sec6").offset().top - $("#sec6").height()
+  console.log("div entrance: " + divEntrance)
+  if(divEntrance < 0 && -(divEntrance) < $("#sec5").height() + 50){
+    console.log("fade iasdflkasjd;flkasd;fkjas;dhn")
+    $("#slideshowBG").removeClass("hide").addClass("unhide")
+  } else {
+    if($("#slideshowBG").hasClass("unhide")){
+
+      $("#slideshowBG").removeClass("unhide").addClass("hide")
+    }
   }
 }
