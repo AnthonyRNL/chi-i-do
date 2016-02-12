@@ -226,6 +226,8 @@ ul{
 
 .contain{
   margin-top: 50px;
+  margin-left: 75px;
+  margin-right: 75px;
 }
 .contain:after{
   content:"";
@@ -266,6 +268,7 @@ float:right;
 }
 #sec4{
   position: relative;
+  text-align: center;
 }
 .contain .pic{
   float:left;
@@ -281,8 +284,9 @@ float:right;
 
 }
 #map{
-  width: 400px;
+  width: 600px;
   height: 600px;
+  margin: auto;
 }
 #logoShape{
   width:200px;
@@ -403,13 +407,29 @@ float:right;
 }
 @media(max-width: 1100px){
   #about{
-    margin-left: 100px;
+    margin-left: 50px;
   }
   #aboutContainer{
-    margin-right: 100px;
+    margin-right: 50px;
+  }
+
+  .contain .pic{
+    position: relative;
+    margin:auto;
+    float:none;
+    text-align: center;
+  }
+  .contain #kayoContainer{
+    float: none;
+    position:relative;
+    margin:auto;
+    width:700px;
   }
 }
-@media(max-width: 975px){
+@media screen
+  and (min-width: 474px)
+  and (max-width: 920px)
+  {
   #about{
     position: relative;
     margin:auto;
@@ -426,9 +446,33 @@ float:right;
     border-bottom: none;
     color: red;
   }
+  .contain #kayoContainer{
+    float: none;
+    position:relative;
+    margin:auto;
+    width:400px;
+  }
 }
-@media only screen and (max-width:500px){
+@media only screen
+  and (min-device-width: 300px)
+  and (max-device-width: 667px)
+  and (-webkit-min-device-pixel-ratio: 2) {
 
+  nav{
+    height: 200px;
+  }
+  #logo{
+    height: 200px;
+  }
+  #menuicn{
+    height: 150px;
+  }
+  #sideMenu h1, h2{
+    font-size: 54pt;
+  }
+  #toggle li{
+    font-size: 30pt;
+  }
   #about{
     position: relative;
     margin:auto;

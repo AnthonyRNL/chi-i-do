@@ -35,10 +35,14 @@ $(document).ready(function(){
 })
 var map;
 var mapOptions = {
-  zoom: 5,
-  center: new google.maps.LatLng(-34.397, 150.644)
+  zoom: 17,
+  center: new google.maps.LatLng(40.7189998,-73.9981371)
 };
 map = new google.maps.Map(document.getElementById("map"), mapOptions)
+var marker = new google.maps.Marker({
+  position: {lat: 40.719180, lng: -73.998113},
+  map: map
+})
 function toggleNav(){
   if($("#main").hasClass("display-nav")){
     $("#main").removeClass("display-nav")
