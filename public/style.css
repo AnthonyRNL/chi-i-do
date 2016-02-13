@@ -49,17 +49,26 @@ nav {
 
 #footer{
   bottom:0;
-  height: 200px;
+  height: 250px;
   background: black;
   text-align: center;
 }
-#footer img{
-  margin:25px;
+#footlogo{
+  margin-top:25px;
+  float:left;
+  width: 100px;
+  border-radius: 50%;
+  border: 2px solid white
+}
+#footer img:not(#footlogo){
+  margin:50px;
   width: 25px;
 }
 #footer img:hover{
   background: red;
 }
+
+
 #logo {
   position: absolute;
   height: 100px;
@@ -69,6 +78,7 @@ nav {
   transition:.5s ease all;
   /*justify-content: flex-end;*/
 }
+
 
 #menuicn {
   height: 50px;
@@ -198,8 +208,25 @@ h1{
 #sections div:nth-child(2n+1){
   /*background: white;*/
 }
-#sec2, #sec3{
+#sec2{
   margin: 50px 50px;
+}
+#sec3{
+  background-color: white
+}
+#sec6{
+  margin-top: 68px;
+  background-color: white
+}
+#sec6 h1{
+  margin-top: 30px;
+}
+.lists{
+  margin:30px;
+
+}
+.lists li{
+  margin: 0 40px 40px 40px;
 }
 
 #background{
@@ -294,7 +321,7 @@ ul{
   margin: auto;
 }
 #slideshowBG{
-  height: 600px;
+  height: 700px;
   width: 100%;
   margin:0;
   position:absolute;
@@ -305,18 +332,22 @@ ul{
   width: 80%;
   height: 600px;
   margin:auto;
-  border: 2px dotted white;
+  border: 2px solid white;
   text-align: center;
+  margin-top: 50px;
 }
 #pics{
   display:inline-flex;
+  padding-left: 0;
   overflow-x: scroll;
   width:800px;
 }
 #pics li{
   height: 100px;
   width: 100px;
-  overflow: hidden;
+}
+#pics li img{
+  width: 100px;
 }
 #showpic img{
   height: 400px;
@@ -324,6 +355,7 @@ ul{
 .thumbpic{
   width: 100px;
 }
+
 @keyframes fadeIn{
   from {opacity:0;}
   to {opacity:1}
@@ -485,6 +517,10 @@ ul{
     width:700px;
   }
 
+  #pics{
+    width: 400px;
+  }
+
 }
 @media screen
   and (min-width: 474px)
@@ -556,5 +592,21 @@ ul{
     width:inherit;
     border-bottom: none;
     color: red;
+  }
+  #slideshowBG{
+    height: 1300px;
+
+  }
+  #pics{
+    width: 600px;
+  }
+  #slideshow{
+    height: 1300px;
+  }
+
+  #showpic img{
+    margin:auto;
+    width:700px;
+    height: auto;
   }
 }
