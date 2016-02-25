@@ -186,8 +186,31 @@ h1{
 #shape{
   /*text-align: center;*/
 }
-
 @-webkit-keyframes rotate{
+  from{
+    -webkit-transform: rotate(360deg);
+  }
+  to{
+    -webkit-transform: rotate(0deg);
+  }
+}
+@-moz-keyframes rotate{
+  from{
+    -moz-transform: rotate(360deg)
+  }
+  to{
+    -moz-transform: rotate(0deg)
+  }
+}
+@-o-keyframes rotate{
+  from{
+    -o-transform: rotate(360deg)
+  }
+  to{
+    -o-transform: rotate(0deg)
+  }
+}
+@keyframes rotate{
   from{
     transform: rotate(360deg)
   }
@@ -197,6 +220,9 @@ h1{
 }
 .rotate{
   -webkit-animation: rotate 4s linear infinite;
+  -moz-animation: rotate 4s linear infinite;
+  -o-animation: rotate 4s linear infinite;
+  animation: rotate 4s linear infinite;
 }
 #zencircle{
   width: 200px;
@@ -338,8 +364,12 @@ ul{
 }
 #pics{
   display:inline-flex;
+  display: -webkit-inline-flex;
   padding-left: 0;
   overflow-x: scroll;
+  -webkit-overflow-x: scroll;
+  overflow-y: hidden;
+  -webkit-overflow-y: hidden;
   width:800px;
 }
 #pics li{
@@ -356,6 +386,33 @@ ul{
   width: 100px;
 }
 
+@-webkit-keyframes fadeIn{
+  from {opacity:0;}
+  to {opacity:1}
+}
+@-webkit-keyframes fadeOut{
+  from{opacity:1}
+  to {opacity:0}
+}
+
+@-moz-keyframes fadeIn{
+  from {opacity:0;}
+  to {opacity:1}
+}
+@-moz-keyframes fadeOut{
+  from{opacity:1}
+  to {opacity:0}
+}
+
+@-o-keyframes fadeIn{
+  from {opacity:0;}
+  to {opacity:1}
+}
+@-o-keyframes fadeOut{
+  from{opacity:1}
+  to {opacity:0}
+}
+
 @keyframes fadeIn{
   from {opacity:0;}
   to {opacity:1}
@@ -365,16 +422,46 @@ ul{
   to {opacity:0}
 }
 .unhide{
+  -webkit-opacity:0;
+  -webkit-animation:fadeIn ease-in 1;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-duration: 1s;
+
+  -moz-opacity:0;
+  -moz-animation:fadeIn ease-in 1;
+  -moz-animation-fill-mode: forwards;
+  -moz-animation-duration: 1s;
+
+  -o-opacity:0;
+  -o-animation:fadeIn ease-in 1;
+  -o-animation-fill-mode: forwards;
+  -o-animation-duration: 1s;
+
   opacity:0;
-  animation: fadeIn ease-in 1;
+  animation:fadeIn ease-in 1;
   animation-fill-mode: forwards;
   animation-duration: 1s
 }
 .hide{
+  -webkit-opacity: 1;
+  -webkit-animation:fadeOut ease-in 1;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-duration: 1s;
+
+  -moz-opacity: 1;
+  -moz-animation:fadeOut ease-in 1;
+  -moz-animation-fill-mode: forwards;
+  -moz-animation-duration: 1s;
+
+  -o-opacity: 1;
+  -o-animation: fadeOut ease-in 1;
+  -o-animation-fill-mode: forwards;
+  -o-animation-duration: 1s;
+
   opacity: 1;
   animation: fadeOut ease-in 1;
   animation-fill-mode: forwards;
-  animation-duration: 1s
+  animation-duration: 1s;
 }
 .clear {
   content: ".";
@@ -410,6 +497,7 @@ ul{
 }
 
 #innerW, #outerB{
+  -webkit-transform: rotate(180deg);
   transform: rotate(180deg)
 }
 #smallB, #smallW{
@@ -431,8 +519,18 @@ ul{
   margin-top: -150px;
   margin-left: 37.5px;
 }
-
-@keyframes innerCircleAni{
+@-webkit-keyframes innerCircleAni{
+  0% {
+    -webkit-transform: rotate(0deg)
+  }
+  50%{
+    -webkit-transform: rotate(180deg)
+  }
+  100%{
+    -webkit-transform: rotate(0deg)
+  }
+}
+@-moz-keyframes innerCircleAni{
   0% {
     transform: rotate(0deg)
   }
@@ -443,18 +541,44 @@ ul{
     transform: rotate(0deg)
   }
 }
+@-o-keyframes innerCircleAni{
+  0% {
+    transform: rotate(0deg);
+  }
+  50%{
+    transform: rotate(180deg);
+  }
+  100%{
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes innerCircleAni{
+  0% {
+    transform: rotate(0deg);
+  }
+  50%{
+    transform: rotate(180deg);
+  }
+  100%{
+    transform: rotate(0deg);
+  }
+}
 #innerCircles {
+  -webkit-animation: innerCircleAni 4s infinite;
+  -moz-animation: innerCircleAni 4s infinite;
+  -o-animation: innerCircleAni 4s infinite;
   animation: innerCircleAni 4s infinite;
 }
 @-webkit-keyframes outerCircleAni{
   0% {
-    transform: rotate(0deg)
+    -webkit-transform: rotate(0deg)
   }
   50%{
-    transform: rotate(180deg)
+    -webkit-transform: rotate(180deg)
   }
   100%{
-    transform: rotate(0deg)
+    -webkit-transform: rotate(0deg)
   }
 }
 @-moz-keyframes outerCircleAni{
@@ -491,7 +615,7 @@ ul{
   }
 }
 #logoInner {
-  -webit-animation: outerCircleAni 4s infinite;
+  -webkit-animation: outerCircleAni 4s infinite;
   -moz-animation: outerCircleAni 4s infinite;
   -o-animation: outerCircleAni 4s infinite;
   animation: outerCircleAni 4s infinite;
